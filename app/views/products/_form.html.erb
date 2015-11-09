@@ -6,7 +6,7 @@
           <fieldset>
             <legend class="text-center"><%= locals[:zone]%></legend>
 
-            <!-- Name input-->
+            <!-- Product Name input-->
             <div class="form-group">
               <label class="col-md-3 control-label" for="name"><%= f.label :name %></label>
               <div class="col-md-9">
@@ -14,7 +14,7 @@
               </div>
             </div>
 
-            <!-- Email input-->
+            <!-- Price input-->
             <div class="form-group">
               <label class="col-md-3 control-label" for="price"><%= f.label :price %></label>
               <div class="col-md-9">
@@ -22,11 +22,19 @@
               </div>
             </div>
 
-            <!-- Message body -->
+            <!-- Image file uploader -->
             <div class="form-group">
               <label class="col-md-3 control-label" for="message"><%= f.label :image %></label>
               <div class="col-md-9">
                 <%= f.file_field :image, class: 'form-control', placehoder: "Price" %>
+              </div>
+            </div>
+
+            <!-- Product categories -->
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="message"><%= f.label :category %></label>
+              <div class="col-md-9">
+                <%= f.select :category_id, Category.all.map { |c| [c.name, c.id] } , {}, { class: 'form-control' }%>
               </div>
             </div>
 

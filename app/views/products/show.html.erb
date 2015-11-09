@@ -13,11 +13,13 @@
           <div class="product-title"><%= @product.name %></div>
           <div class="product-desc">Product description
           </div>
+          <div class="product-info">Category :: <%= @product.category.name %></div>
           <div class="product-rating"><i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i>
             <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star-o"></i></div>
           <hr>
-          <div class="product-price"><%= number_to_currency @product.price %></div>
-          <div class="product-stock">In Stock</div>
+          <div class="product-price"><%= number_to_currency @product.price %><div class="product-stock">In Stock</div></div>
+
+
           <hr>
           <div class="btn-group cart">
             <%= link_to 'Add to cart', add_cart_path, method: :post, class: 'btn btn-primary' %>

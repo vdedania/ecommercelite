@@ -1,42 +1,6 @@
 <p id="notice"><%= notice %></p>
-<div class="container">
-  <div class="row-eq-height">
-    <div class="col-md-11">
-      <% @products.each do |product| %>
 
-          <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-              <%=  image_tag product.image.thumb, :style => 'height:80px; width: 80px;' %>
-              <div class="caption">
-                <div class="row">
-                  <div class="col-md-6 col-xs-6">
-                    <h3><%= link_to product.name, product %></h3>
-                  </div>
-                  <div class="col-md-6 col-xs-6 price">
-                    <h3>
-                      <label><%= number_to_currency product.price %></label></h3>
-                  </div>
-                </div>
-                <p>Best desk ever made with pure wood djfksd jkewrj</p>
-
-                <div class="row">
-                  <div class="col-md-6">
-                    <%= link_to 'Edit', edit_product_path(product), class: 'btn btn-primary btn-product' %>
-                  </div>
-                  <div class="col-md-6">
-                    <%= link_to 'Delete', product, method: :delete, data: {confirm: 'Are you sure?'},
-                                class: 'btn btn-danger btn-product' %>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-      <% end %>
-    </div>
-
-  </div>
-</div>
+<%= render 'products/grid', products: @products, category_name: '' %>
 
 <div style="display: none;">
   <h1>Listing Products</h1>
