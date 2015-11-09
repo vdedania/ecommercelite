@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Ecommerce Lite</a>
+      <a class="navbar-brand" href="<%= root_path %>">Ecommerce Lite</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -16,6 +16,7 @@
       <ul class="nav navbar-nav">
         <li class="active"><%= link_to "Products", products_path %></li>
       </ul>
+      <%= render "shared/cart" %>
     </div>
     <!-- /.navbar-collapse -->
   </div>
