@@ -62,9 +62,8 @@
               <%= link_to "Continue Shopping", root_path %>
             </button></td>
           <td>
-            <button type="button" class="btn btn-success">
-              Checkout <span class="glyphicon glyphicon-play"></span>
-            </button></td>
+            <%= link_to "Checkout", checkout_cart_path, class: 'btn btn-primary' %>
+          </td>
         </tr>
         </tbody>
       </table>

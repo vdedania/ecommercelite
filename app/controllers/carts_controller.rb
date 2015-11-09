@@ -13,6 +13,9 @@ class CartsController < ApplicationController
   def show
   end
 
+  def checkout
+  end
+
   def remove
     #shopping_cart = Cart.build_from_hash session
     #shopping_cart = shopping_cart.except(params[:id])
