@@ -1,17 +1,48 @@
-<h1>
-  <%= @product.name %>
-</h1>
+<div class="container-fluid">
+  <div class="content-wrapper">
+    <div class="item-container">
+      <div class="container">
+        <%= link_to 'Back to product listing', products_path, class: 'btn btn-primary btn-xs active' %>
+        <div class="col-md-12">
+          <div class="product col-md-3 service-image-left">
+            <%= image_tag @product.image, style: 'height:300px;' %>
+          </div>
+        </div>
 
-<p>
-  <%= number_to_currency @product.price %>
-</p>
+        <div class="col-md-7">
+          <div class="product-title"><%= @product.name %></div>
+          <div class="product-desc">Product description
+          </div>
+          <div class="product-rating"><i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i>
+            <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star-o"></i></div>
+          <hr>
+          <div class="product-price"><%= number_to_currency @product.price %></div>
+          <div class="product-stock">In Stock</div>
+          <hr>
+          <div class="btn-group cart">
+            <%= link_to 'Add to cart', add_cart_path, method: :post, class: 'btn btn-primary' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="display: none">
+  <h1>
+    <%= @product.name %>
+  </h1>
 
-<p>
-  <%= image_tag @product.image, style: 'height:300px;' %>
-</p>
+  <p>
+    <%= number_to_currency @product.price %>
+  </p>
 
-<p>
-  <%= link_to 'Add to cart', add_cart_path, method: :post, class: 'btn btn-primary' %> |
-  <%= link_to 'Edit', edit_product_path(@product) %> |
-  <%= link_to 'Back', products_path %>
-</p>
+  <p>
+    <%= image_tag @product.image, style: 'height:300px;' %>
+  </p>
+
+  <p>
+    <%= link_to 'Add to cart', add_cart_path, method: :post, class: 'btn btn-primary' %> |
+    <%= link_to 'Edit', edit_product_path(@product) %> |
+    <%= link_to 'Back', products_path %>
+  </p>
+</div>

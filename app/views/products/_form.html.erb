@@ -1,3 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-7">
+      <div class="well well-sm">
+          <%= form_for(@product, multipart: true, :html => {:class => 'form-horizontal'}) do |f| %>
+          <fieldset>
+            <legend class="text-center"><%= locals[:zone]%></legend>
+
+            <!-- Name input-->
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="name"><%= f.label :name %></label>
+              <div class="col-md-9">
+                <%= f.text_field :name, class: 'form-control', placehoder: "Product Name" %>
+              </div>
+            </div>
+
+            <!-- Email input-->
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="price"><%= f.label :price %></label>
+              <div class="col-md-9">
+                <%= f.text_field :price, class: 'form-control', placehoder: "Price" %>
+              </div>
+            </div>
+
+            <!-- Message body -->
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="message"><%= f.label :image %></label>
+              <div class="col-md-9">
+                <%= f.file_field :image, class: 'form-control', placehoder: "Price" %>
+              </div>
+            </div>
+
+            <!-- Form actions -->
+            <div class="form-group">
+              <div class="col-md-12 text-right">
+                <%= f.submit 'Save Product', :class => 'btn btn-primary btn-lg' %>
+              </div>
+            </div>
+          </fieldset>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="display: none">
 <%= form_for(@product, multipart: true) do |f| %>
   <% if @product.errors.any? %>
     <div id="error_explanation">
@@ -27,3 +73,4 @@
     <%= f.submit %>
   </div>
 <% end %>
+</div>

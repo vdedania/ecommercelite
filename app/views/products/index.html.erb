@@ -1,33 +1,72 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row-eq-height">
+    <div class="col-md-11">
+      <% @products.each do |product| %>
 
-<h1>Listing Products</h1>
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <%=  image_tag product.image.thumb, :style => 'height:80px; width: 80px;' %>
+              <div class="caption">
+                <div class="row">
+                  <div class="col-md-6 col-xs-6">
+                    <h3><%= link_to product.name, product %></h3>
+                  </div>
+                  <div class="col-md-6 col-xs-6 price">
+                    <h3>
+                      <label><%= number_to_currency product.price %></label></h3>
+                  </div>
+                </div>
+                <p>Best desk ever made with pure wood djfksd jkewrj</p>
 
-<table class="table table-hover">
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th>Price</th>
-    <th>Image</th>
-    <th></th>
-  </tr>
-  </thead>
+                <div class="row">
+                  <div class="col-md-6">
+                    <%= link_to 'Edit', edit_product_path(product), class: 'btn btn-primary btn-product' %>
+                  </div>
+                  <div class="col-md-6">
+                    <%= link_to 'Delete', product, method: :delete, data: {confirm: 'Are you sure?'},
+                                class: 'btn btn-danger btn-product' %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-  <tbody>
-  <% @products.each do |product| %>
-      <tr>
-        <td><%= link_to product.name, product %></td>
-        <td><%= number_to_currency product.price %></td>
-        <td><%= image_tag product.image.thumb %></td>
-        <td>
-          <%= link_to 'Edit', edit_product_path(product) %>
-          <%= link_to 'Destroy', product, method: :delete, data: {confirm: 'Are you sure?'} %></td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
+      <% end %>
+    </div>
 
-<br>
+  </div>
+</div>
 
-<%= link_to 'New Product', new_product_path, class: "btn btn-primary" %>
+<div style="display: none;">
+  <h1>Listing Products</h1>
 
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Image</th>
+      <th></th>
+    </tr>
+    </thead>
 
+    <tbody>
+    <% @products.each do |product| %>
+        <tr>
+          <td><%= link_to product.name, product %></td>
+          <td><%= number_to_currency product.price %></td>
+          <td><%= image_tag product.image.thumb %></td>
+          <td>
+            <%= link_to 'Edit', edit_product_path(product) %>
+            <%= link_to 'Destroy', product, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Product', new_product_path, class: "btn btn-primary" %>
+
+</div>

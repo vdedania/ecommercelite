@@ -3,6 +3,9 @@
 <head>
   <title>Ecommercelite</title>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'views/products/detail', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'views/products/list', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'views/cart/shopping_cart', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -11,8 +14,8 @@
 <%= render 'shared/nav' %>
 
 <div class="container">
-  <%= content_tag :div, notice, class: 'bg-success' %>
-  <%= content_tag :div, alert, class: 'bg-danger' %>
+  <%= content_tag :p, notice, class: 'bg-success' %>
+  <%= content_tag :p, alert, class: 'bg-danger' %>
   <%= yield %>
 </div>
 

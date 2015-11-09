@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resource :cart, only: [ :show] do
     post 'add', path: 'add/:id', on: :member
+    post 'remove', path: 'remove/:id', on: :member
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

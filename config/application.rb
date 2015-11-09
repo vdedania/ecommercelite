@@ -22,5 +22,9 @@ module Ecommercelite
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.assets.precompile += %w( views/products/detail.css )
+    config.assets.precompile += %w( views/products/list.css )
+    config.assets.precompile += %w( views/cart/shopping_cart.css )
   end
 end
