@@ -35,3 +35,5 @@ Start the server
 rails server
 ```
 
+http://localhost:3000
+
