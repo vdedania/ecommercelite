@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :products
 
   resource :cart, only: [ :show] do
-    post 'add', path: 'add/:id', on: :member
+    post 'add', path: 'add/:id/:quantity', on: :member
     post 'remove', path: 'remove/:id', on: :member
     get :checkout
   end
