@@ -20,9 +20,9 @@ gem 'bootstrap-sass'
 gem "autoprefixer-rails"
 
 #To manage product image upload and generating thumbnail images
+#gem 'graphicsmagick'
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'graphicsmagick'
 
 #To creating users and functionality for user management
 gem 'devise'

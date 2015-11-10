@@ -20,8 +20,12 @@
 
               <div style="margin-top:10px" class="form-group">
                 <!-- Button -->
-                <div class="col-sm-12 controls">
+                <div class="col-sm-6 controls">
                   <%= f.submit "Log in", class: 'btn btn-lg btn-primary btn-block' %>
+                </div>
+
+                <div class="col-sm-6 controls">
+                <%= render "devise/shared/links" %>
                 </div>
               </div>
             </form>
@@ -30,6 +34,8 @@
       </div>
     </div>
 <% end %>
+
+
 
 <div style="display: none;">
   <h2>Log in</h2>

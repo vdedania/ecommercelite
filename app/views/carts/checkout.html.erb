@@ -29,7 +29,7 @@
                         <div class="row">
                           <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
-                              <%= u.text_field :address, placeholder: 'Delivery Address', class: 'form-control input-lg' %>
+                              <%= u.text_field :address, placeholder: 'Shipping Address', class: 'form-control input-lg' %>
                             </div>
                           </div>
                           <div class="col-xs-3 col-sm-3 col-md-3">
@@ -46,7 +46,7 @@
                         <div class="row">
                           <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
-                              <%= u.country_select :country, {priority_countries: ["GB", "US", "CA"]}, {class: 'form-control input-lg'} %>
+                              <%= u.country_select :country, {priority_countries: ["US", "GB", "CA"]}, {class: 'form-control input-lg'} %>
                             </div>
                           </div>
                           <div class="col-xs-6 col-sm-6 col-md-6">
