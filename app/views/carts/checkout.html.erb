@@ -1,65 +1,73 @@
 <h1>Checkout</h1>
 
-<%= render 'carts/summary', cart: @cart %>
+<% if @cart %>
+    <% if @cart.isCartEmpty? %>
+        <h4>Your cart is empty.</h4>
+    <% else %>
+        <%= render 'carts/summary', cart: @cart %>
 
-<%= form_for @order_form, url: orders_path do |f| %>
-    <%= f.fields_for :user, f.object.user do |u| %>
+        <%= form_for @order_form, url: orders_path do |f| %>
+            <%= render 'orders/errors' %>
+            <%= f.fields_for :user, f.object.user do |u| %>
 
-        <div class="container">
+                <div class="container">
 
-          <div class="row">
-            <div class="col-xs-7">
-              <form role="form">
-                <h2>Promotion !!
-                  <small>Everything is free. Go ahead.</small>
-                </h2>
-                <hr class="colorgraph">
+                  <div class="row">
+                    <div class="col-xs-7">
+                      <form role="form">
+                        <h2>Promotion !!
+                          <small>Everything is free. Go ahead.</small>
+                        </h2>
+                        <hr class="colorgraph">
 
-                <div class="form-group">
-                  <%= u.text_field :name, placeholder: 'Full Name', class: 'form-control input-lg' %>
-                </div>
-                <div class="form-group">
-                  <%= u.text_field :email, placeholder: 'Email Address', class: 'form-control input-lg', type: 'email' %>
-                </div>
-                <div class="row">
-                  <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
-                      <%= u.text_field :address, placeholder: 'Delivery Address', class: 'form-control input-lg' %>
+                        <div class="form-group">
+                          <%= u.text_field :name, placeholder: 'Full Name', class: 'form-control input-lg' %>
+                        </div>
+                        <div class="form-group">
+                          <%= u.text_field :email, placeholder: 'Email Address', class: 'form-control input-lg', type: 'email' %>
+                        </div>
+                        <div class="row">
+                          <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                              <%= u.text_field :address, placeholder: 'Delivery Address', class: 'form-control input-lg' %>
+                            </div>
+                          </div>
+                          <div class="col-xs-3 col-sm-3 col-md-3">
+                            <div class="form-group">
+                              <%= u.text_field :postal_code, placeholder: 'Zip Code', class: 'form-control input-lg' %>
+                            </div>
+                          </div>
+                          <div class="col-xs-3 col-sm-3 col-md-3">
+                            <div class="form-group">
+                              <%= u.text_field :city, placeholder: 'City', class: 'form-control input-lg' %>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                              <%= u.country_select :country, {priority_countries: ["GB", "US", "CA"]}, {class: 'form-control input-lg'} %>
+                            </div>
+                          </div>
+                          <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                              <%= u.text_field :phone, placeholder: 'Phone', class: 'form-control input-lg' %>
+                            </div>
+                          </div>
+                        </div>
+                        <hr class="colorgraph">
+                        <div class="row">
+                          <div class="col-xs-6 col-md-6 pull-right">
+                            <%= f.submit 'Place Order', :class => 'btn btn-primary btn-block btn-lg' %>
+                          </div>
+                        </div>
+                      </form>
                     </div>
                   </div>
-                  <div class="col-xs-3 col-sm-3 col-md-3">
-                    <div class="form-group">
-                      <%= u.text_field :postal_code, placeholder: 'Zip Code', class: 'form-control input-lg' %>
-                    </div>
-                  </div>
-                  <div class="col-xs-3 col-sm-3 col-md-3">
-                    <div class="form-group">
-                      <%= u.text_field :city, placeholder: 'City', class: 'form-control input-lg' %>
-                    </div>
-                  </div>
                 </div>
-                <div class="row">
-                  <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
-                      <%= u.country_select :country, { priority_countries: [ "GB", "US", "CA"] }, { class: 'form-control input-lg' }%>
-                    </div>
-                  </div>
-                  <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
-                      <%= u.text_field :phone, placeholder: 'Phone', class: 'form-control input-lg' %>
-                    </div>
-                  </div>
-                </div>
-                <hr class="colorgraph">
-                <div class="row">
-                  <div class="col-xs-6 col-md-6">
-                    <input type="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
-                  <div class="col-xs-6 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg">Sign In</a></div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
 
+            <% end %>
+        <% end %>
     <% end %>
 <% end %>
+
