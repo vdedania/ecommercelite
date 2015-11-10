@@ -8,22 +8,8 @@ Ecommerce Lite is an e-commerce platform built with Ruby on Rails.
 Installation
 ------------
 
-```shell
-Clone the Git repo
-git clone git://github.com/vdedania/ecommercelite.git
-```
-
-```shell
-gem install rails -v 4.2.2
-cd ecommercelite
-```
-
-```shell
-bundle install
-rake db:create
-rake db:migrate
-```
-
-```shell
-rails s
+```ruby
+require 'redcarpet'
+markdown = Redcarpet.new("Hello World!")
+puts markdown.to_html
 ```
