@@ -8,7 +8,7 @@ Ecommerce Lite is an e-commerce platform built with Ruby on Rails.
 Installation
 ------------
 
-```shell
+```
 Clone the Git repo
 git clone git://github.com/vdedania/ecommercelite.git
 
