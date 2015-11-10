@@ -2,7 +2,7 @@ class CartsController < ApplicationController
   before_filter :initialize_cart
 
   def add
-    @cart.add_item params[:id, :quantity]
+    @cart.add_item params[:id]
 
     session["cart"] = @cart.serialize
 
@@ -18,24 +18,11 @@ class CartsController < ApplicationController
   end
 
   def remove
-    #shopping_cart = Cart.build_from_hash session
-    #shopping_cart = shopping_cart.except(params[:id])
+    shopping_cart = Cart.build_from_hash(session)
+    item_index_to_delete = shopping_cart.items.find_index { |item| item.product_id == params[:id] }
 
-    updated_items = shopping_cart.items.find { |item| item.product_id != params[:id] }
-    #@cart.items.delete(params[:id]);
-    #@cart.items = updated_items
-
-    #items = []
-    #shopping_cart.items.each do |newItem|
-    # items << CartItem.new(newItem.product_id)
-    #end
-
-    #if items
-    #new_data = updated_items.each_with_object({}) { |v, h| h[v] = f(v) }
-    # session["cart"] = items
-    #else
-    # session["cart"] = nil
-    #end
+    @cart.items.delete_at(item_index_to_delete)
+    session['cart'] = @cart.serialize
 
     redirect_to :back
   end
