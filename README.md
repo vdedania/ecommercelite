@@ -13,7 +13,11 @@ Clone the Git repo
 git clone git://github.com/vdedania/ecommercelite.git
 ```
 
-Install the gem dependencies
+Verify rails version and install the gem dependencies
+
+```ruby
+sudo gem install rails
+```
 
 ```shell
 cd ecommercelite
