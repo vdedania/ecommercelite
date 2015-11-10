@@ -3,6 +3,15 @@ SUMMARY
 
 EcommerceLite is an e-commerce platform built with Ruby on Rails. This solution includes an admin functionality to manage product and it's categories. There is a customer facing shopping experience includes viewing of products, product detail, search product by category, shopping cart and checkout. Devise gem is used to handle user authentication and authorization purpose.
 
+System Requirement
+-------------------
+
+* Rails version :: 4.2.3
+
+* Ruby version :: 2.2.3
+
+* RubyGems version :: 2.4.5.1
+
 
 Installation
 ------------
