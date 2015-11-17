@@ -68,7 +68,7 @@ b) CategoriesController
 
 Models testing criteria ::
 
-a) Cart
+c) Cart
 
    - To verify the functionality add product into cart
    - To verify that system is updating only product count instead of duplicating same product muiltiple times.
