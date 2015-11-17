@@ -1,49 +1,32 @@
 require 'test_helper'
 
 class ProductsControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+
   setup do
+    @request.env["devise.mapping"] = Devise.mappings[:admin]
     @product = products(:one)
   end
 
-  test "should get index" do
+  test "web user should get index" do
     get :index
     assert_response :success
     assert_not_nil assigns(:products)
   end
 
-  test "should get new" do
+  test "web user should not get new" do
     get :new
-    assert_response :success
+    assert_response :redirect
   end
 
-  test "should create product" do
-    assert_difference('Product.count') do
-      post :create, product: { image: @product.image, name: @product.name, price: @product.price }
-    end
-
-    assert_redirected_to product_path(assigns(:product))
-  end
-
-  test "should show product" do
+  test "web user should show product" do
     get :show, id: @product
     assert_response :success
   end
 
-  test "should get edit" do
+  test "web user should not get edit product" do
     get :edit, id: @product
-    assert_response :success
+    assert_redirected_to new_user_session_path
   end
 
-  test "should update product" do
-    patch :update, id: @product, product: { image: @product.image, name: @product.name, price: @product.price }
-    assert_redirected_to product_path(assigns(:product))
-  end
-
-  test "should destroy product" do
-    assert_difference('Product.count', -1) do
-      delete :destroy, id: @product
-    end
-
-    assert_redirected_to products_path
-  end
 end

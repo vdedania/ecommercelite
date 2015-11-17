@@ -1,27 +1,21 @@
 require 'test_helper'
 
 class CategoriesControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+
   setup do
+    @request.env["devise.mapping"] = Devise.mappings[:admin]
     @category = categories(:one)
   end
 
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:categories)
   end
 
-  test "should get new" do
+  test "web user should not get new category" do
     get :new
-    assert_response :success
-  end
-
-  test "should create category" do
-    assert_difference('Category.count') do
-      post :create, category: { name: @category.name }
-    end
-
-    assert_redirected_to category_path(assigns(:category))
+    assert_redirected_to new_user_session_path
   end
 
   test "should show category" do
@@ -31,19 +25,11 @@ class CategoriesControllerTest < ActionController::TestCase
 
   test "should get edit" do
     get :edit, id: @category
-    assert_response :success
+    assert_response :redirect
   end
 
   test "should update category" do
-    patch :update, id: @category, category: { name: @category.name }
-    assert_redirected_to category_path(assigns(:category))
-  end
-
-  test "should destroy category" do
-    assert_difference('Category.count', -1) do
-      delete :destroy, id: @category
-    end
-
-    assert_redirected_to categories_path
+    patch :update, id: @category, category: {name: @category.name}
+    assert_redirected_to new_user_session_path
   end
 end

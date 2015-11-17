@@ -16,7 +16,7 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   test 'search product within cart' do
-    product = Product.create! name: 'Desk', price: 12
+    product = Product.create! name: 'Desk', price: 12, category_id: 1
 
     cart = Cart.new
     cart.add_item product.id

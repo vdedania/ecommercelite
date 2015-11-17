@@ -2,6 +2,17 @@
   <div class="row-eq-height">
     <div class="col-md-11">
       <h3 style="padding-left: 15px"><%= category_name %></h3>
+
+      <% if products.empty? && !user_signed_in? %>
+          <h4>Welcome to Ecommerce Lite !! Currently there are no products on website.
+            <br/><br/>Please <%= link_to "Click Here", new_user_session_path %> to sign up as Admin to add new products.
+          </h4>
+      <% end %>
+
+      <% if products.empty? && user_signed_in? %>
+          Welcome <%= current_user.name %>, To add new products click on <b>Manage Product => Add New Product</b> from top navigation.
+      <% end %>
+
       <% products.each do |product| %>
 
           <div class="col-sm-6 col-md-4">
